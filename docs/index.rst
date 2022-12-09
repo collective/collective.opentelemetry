@@ -1,0 +1,5 @@
+========================
+collective.opentelemetry
+========================
+
+User documentation
