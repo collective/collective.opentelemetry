@@ -33,6 +33,8 @@ collective.opentelemetry
 
 OpenTelemetry instrumentation for Plone
 
+(work in progress)
+
 Features
 --------
 

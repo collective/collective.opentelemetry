@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
-"""Init and utils."""
-from zope.i18nmessageid import MessageFactory
+from opentelemetry.instrumentation.wsgi import OpenTelemetryMiddleware
 
 
-_ = MessageFactory('collective.opentelemetry')
+def wsgi_middleware_factory(global_config):
+    def filter(app):
+        return OpenTelemetryMiddleware(app)
+
+    return filter
