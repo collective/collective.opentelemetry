@@ -53,6 +53,7 @@ setup(
     install_requires=[
         "setuptools",
         "opentelemetry-distro",
+        "opentelemetry-exporter-otlp",
         "opentelemetry-instrumentation-wsgi",
     ],
     entry_points="""
