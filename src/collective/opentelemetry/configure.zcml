@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    >
+
+  <subscriber
+      handler=".handlers.on_pub_failure"
+      />
+
+</configure>

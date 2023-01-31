@@ -57,7 +57,9 @@ setup(
         "opentelemetry-instrumentation-wsgi",
     ],
     entry_points="""
+    [z3c.autoinclude.plugin]
+    target = plone
     [paste.filter_factory]
-    wsgi = collective.opentelemetry:wsgi_middleware_factory
+    wsgi = collective.opentelemetry.middleware:wsgi_middleware_factory
     """,
 )
