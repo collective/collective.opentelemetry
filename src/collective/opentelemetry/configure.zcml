@@ -3,6 +3,9 @@
     >
 
   <subscriber
+      handler=".handlers.after_pub_traversal"
+      />
+  <subscriber
       handler=".handlers.on_pub_failure"
       />
 
