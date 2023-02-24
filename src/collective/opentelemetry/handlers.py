@@ -1,7 +1,9 @@
 from AccessControl import getSecurityManager
 from opentelemetry.semconv.trace import SpanAttributes
 from opentelemetry.trace import Span
+from transaction.interfaces import TransientError
 from zope.component import adapter
+from ZODB.exceptions import ConflictError
 from zExceptions import NotFound, Redirect, Unauthorized
 from ZPublisher.interfaces import IPubFailure, IPubAfterTraversal
 from ZPublisher.pubevents import PubFailure, PubAfterTraversal
@@ -42,5 +44,8 @@ def on_pub_failure(event: PubFailure):
     span: Span = event.request.environ.get(SPAN_KEY)
     if span:
         err = event.exc_info[1]
-        if not isinstance(err, IGNORED_EXCEPTIONS):
-            span.record_exception(err)
+        if isinstance(err, IGNORED_EXCEPTIONS):
+            return
+        if isinstance(err, TransientError) and event.request.supports_retry():
+            return
+        span.record_exception(err)
