@@ -3,7 +3,6 @@ from opentelemetry.semconv.trace import SpanAttributes
 from opentelemetry.trace import Span
 from transaction.interfaces import TransientError
 from zope.component import adapter
-from ZODB.exceptions import ConflictError
 from zExceptions import NotFound, Redirect, Unauthorized
 from ZPublisher.interfaces import IPubFailure, IPubAfterTraversal
 from ZPublisher.pubevents import PubFailure, PubAfterTraversal
