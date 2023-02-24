@@ -32,7 +32,8 @@ def after_pub_traversal(event: PubAfterTraversal):
 
         # Record user id
         user_id = getSecurityManager().getUser().getId()
-        span.set_attribute(SpanAttributes.ENDUSER_ID, user_id)
+        if user_id:
+            span.set_attribute(SpanAttributes.ENDUSER_ID, user_id)
 
 
 @adapter(IPubFailure)
