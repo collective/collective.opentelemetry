@@ -51,7 +51,7 @@ def on_pub_failure(event: PubFailure):
     span: Span = event.request.environ.get(SPAN_KEY)
     if span:
         # Add view name for exceptions
-        if "http.route" not in span.attributes:
+        if "http.route" not in getattr(span, "attributes", {}):
             class_name, module_name = get_view_class(event.exc_info[1])
             view_name = f"{class_name} [{module_name}]"
             span.update_name(view_name)
