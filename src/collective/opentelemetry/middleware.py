@@ -1,6 +1,7 @@
-from opentelemetry.trace import Span, get_tracer
 from opentelemetry.instrumentation.wsgi import OpenTelemetryMiddleware
+from opentelemetry.trace import Span
 from .interfaces import SPAN_KEY
+from .patches import apply_patches
 
 
 def request_hook(span: Span, environ: dict):
@@ -15,11 +16,3 @@ def wsgi_middleware_factory(global_config):
         return OpenTelemetryMiddleware(app, request_hook=request_hook)
 
     return filter
-
-
-def apply_patches():
-    tracer = get_tracer(__name__)
-
-    from plone.namedfile import scaling
-
-    scaling.scaleImage = tracer.start_as_current_span("scaleImage")(scaling.scaleImage)
