@@ -1,6 +1,7 @@
 from AccessControl import getSecurityManager
 from opentelemetry.semconv.trace import SpanAttributes
 from opentelemetry.trace import Span
+from plone.caching.hooks import Intercepted
 from transaction.interfaces import TransientError
 from zope.component import adapter
 from zExceptions import NotFound, Redirect, Unauthorized
@@ -8,7 +9,7 @@ from ZPublisher.interfaces import IPubFailure, IPubAfterTraversal
 from ZPublisher.pubevents import PubFailure, PubAfterTraversal
 from .interfaces import SPAN_KEY
 
-IGNORED_EXCEPTIONS = (NotFound, Redirect, Unauthorized)
+IGNORED_EXCEPTIONS = (NotFound, Redirect, Unauthorized, Intercepted)
 
 
 def get_view_class(obj):
