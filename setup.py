@@ -56,6 +56,9 @@ setup(
         "opentelemetry-exporter-otlp",
         "opentelemetry-instrumentation-wsgi",
     ],
+    extras_require={
+        "profiler": ["pyinstrument"],
+    },
     entry_points="""
     [z3c.autoinclude.plugin]
     target = plone
