@@ -1,5 +1,6 @@
 from .interfaces import SPAN_KEY
 from pyinstrument import Profiler
+
 import re
 
 
@@ -22,7 +23,10 @@ def profiler_middleware_factory(app):
 
         # add profile event to opentelemetry span
         span = environ[SPAN_KEY]
-        span.add_event("profile", attributes={"profile.text": profiler.output_text(show_all=True)})
+        span.add_event(
+            "profile", attributes={"profile.text": profiler.output_text(show_all=True)}
+        )
 
         return result
+
     return profiler_middleware

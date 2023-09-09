@@ -44,7 +44,7 @@ def apply_patches():
     Catalog.search = trace_search
 
     try:
-        import collective.solr
+        import collective.solr  # noqa
     except ImportError:
         pass
     else:

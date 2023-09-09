@@ -1,1 +1,1 @@
--r requirements_plone60.txt
+-e ".[test]"

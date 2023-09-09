@@ -1,13 +1,18 @@
+from .interfaces import SPAN_KEY
 from AccessControl import getSecurityManager
 from opentelemetry.semconv.trace import SpanAttributes
 from opentelemetry.trace import Span
 from plone.caching.hooks import Intercepted
 from transaction.interfaces import TransientError
+from zExceptions import NotFound
+from zExceptions import Redirect
+from zExceptions import Unauthorized
 from zope.component import adapter
-from zExceptions import NotFound, Redirect, Unauthorized
-from ZPublisher.interfaces import IPubFailure, IPubAfterTraversal
-from ZPublisher.pubevents import PubFailure, PubAfterTraversal
-from .interfaces import SPAN_KEY
+from ZPublisher.interfaces import IPubAfterTraversal
+from ZPublisher.interfaces import IPubFailure
+from ZPublisher.pubevents import PubAfterTraversal
+from ZPublisher.pubevents import PubFailure
+
 
 IGNORED_EXCEPTIONS = (NotFound, Redirect, Unauthorized, Intercepted)
 

@@ -1,7 +1,8 @@
-from opentelemetry.instrumentation.wsgi import OpenTelemetryMiddleware
-from opentelemetry.trace import Span
 from .interfaces import SPAN_KEY
 from .patches import apply_patches
+from opentelemetry.instrumentation.wsgi import OpenTelemetryMiddleware
+from opentelemetry.trace import Span
+
 
 try:
     from .profiler import profiler_middleware_factory
