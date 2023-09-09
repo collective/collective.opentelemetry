@@ -1,6 +1,9 @@
 graft src/collective
 graft docs
 include *.rst
+exclude Makefile
+exclude instance.yaml
 exclude tox.ini
 exclude *.txt
+recursive-exclude news *
 global-exclude *.pyc

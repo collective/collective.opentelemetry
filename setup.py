@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Installer for the collective.opentelemetry package."""
 
 from setuptools import find_packages
@@ -21,6 +20,7 @@ setup(
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: Addon",
