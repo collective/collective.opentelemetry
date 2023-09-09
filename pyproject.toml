@@ -116,6 +116,8 @@ Zope = [
   'Products.CMFCore', 'Products.CMFDynamicViewFTI',
 ]
 python-dateutil = ['dateutil']
+ignore-packages = ['zestreleaser.towncrier']
+Plone = ['Products.ZCatalog']
 
 ##
 # Add extra configuration options in .meta.toml:

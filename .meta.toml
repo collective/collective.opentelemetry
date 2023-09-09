@@ -13,3 +13,9 @@ jobs = [
     "dependencies",
     "release_ready",
     ]
+
+[pyproject]
+dependencies_ignores = "['zestreleaser.towncrier']"
+dependencies_mappings = [
+    "Plone = ['Products.ZCatalog']",
+    ]
