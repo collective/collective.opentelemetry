@@ -15,7 +15,8 @@ jobs = [
     ]
 
 [pyproject]
-dependencies_ignores = "['zestreleaser.towncrier']"
+dependencies_ignores = "['collective.solr', 'opentelemetry-exporter-otlp', 'opentelemetry-instrumentation-wsgi', 'pyinstrument']"
 dependencies_mappings = [
+    "opentelemetry-distro = ['opentelemetry']",
     "Plone = ['Products.ZCatalog']",
     ]

@@ -116,7 +116,8 @@ Zope = [
   'Products.CMFCore', 'Products.CMFDynamicViewFTI',
 ]
 python-dateutil = ['dateutil']
-ignore-packages = ['zestreleaser.towncrier']
+ignore-packages = ['collective.solr', 'opentelemetry-exporter-otlp', 'opentelemetry-instrumentation-wsgi', 'pyinstrument']
+opentelemetry-distro = ['opentelemetry']
 Plone = ['Products.ZCatalog']
 
 ##
