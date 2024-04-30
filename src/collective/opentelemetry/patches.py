@@ -1,5 +1,7 @@
 from opentelemetry.trace import get_tracer
+
 import os
+
 
 TRACE_ZCATALOG = os.environ.get("OTEL_PLONE_ZCATALOG")
 
