@@ -1,4 +1,7 @@
 from opentelemetry.trace import get_tracer
+import os
+
+TRACE_ZCATALOG = os.environ.get("OTEL_PLONE_ZCATALOG")
 
 
 def apply_patches():
@@ -41,7 +44,8 @@ def apply_patches():
             span.set_attribute("plone.zcatalog.limit", str(limit))
             return orig_search(self, query, sort_index, reverse, limit, merge)
 
-    Catalog.search = trace_search
+    if TRACE_ZCATALOG:
+        Catalog.search = trace_search
 
     try:
         import collective.solr  # noqa
