@@ -24,7 +24,8 @@ def profiler_middleware_factory(app):
         # add profile event to opentelemetry span
         span = environ[SPAN_KEY]
         span.add_event(
-            "profile", attributes={"profile.text": profiler.output_text(show_all=True)}
+            "profile",
+            attributes={"exception.stacktrace": profiler.output_text(show_all=True)},
         )
 
         return result
